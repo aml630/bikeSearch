@@ -2,11 +2,12 @@ var getBikes = require('./../js/headline_bikes.js').getBikes;
 var stolenZip = require('./../js/zip_search.js').stolenZip;
 var initMap = require('./../js/map.js').initMap;
 var geocodeAddress = require('./../js/map.js').geocodeAddress;
-
+var getRepos = require('./../js/username.js').getRepos;
 
 $(document).ready(function(){
-initMap();
+  initMap();
   getBikes();
+  // getRepos();
   $('#zipSearch').submit(function(event){
     event.preventDefault();
     var zipcode = $('#zipcode').val();
@@ -20,4 +21,10 @@ initMap();
 
 
   });
+
+  $("#username").submit(function (event) {
+    event.preventDefault();
+    // var name = $("#name").val();
+    getRepos();
+  })
 });
